@@ -1,0 +1,253 @@
+<html>
+	<head>
+		<title>Vacination App</title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	</head>
+	<body>
+		<a href="/"><i class="home icon"></i></a> 
+	<div class="ui container segment" >
+		<div class="ui huge header">
+			Create Vacination
+		</div>
+	<form class="ui form" action="/details/<%= vacc._id %>?_method=PUT" method="POST">
+		<div class="ui segments">
+			
+			<div class="ui segment">
+					<label>Hospital</label>
+					<input type="text" name="vacc[info.hospital]" value="<%= vacc.info.hospital %>">
+				</div>
+			
+		</div>
+		
+			<div class="ui segments">
+				<div class="ui segment">
+					<label>Phone Number :</label><br>
+					<input type="text" name="vacc[info.phone]" value="<%= vacc.info.phone %>">
+				</div>
+				<div class="ui segment">
+					<label>Email :</label><br>
+					<input type="text" name="vacc[info.email]" value="<%= vacc.info.email %>">
+				</div>
+			</div>
+			<div class="ui segments">
+				<div class="ui segment">
+					<div class="field">
+						<label>Start Date</label>
+						<select class="ui search dropdown" name="stdate">
+							<option value="">Date</option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + ( 1.5 * 60 * 60 * 1000) + (0 * 60 * 1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (15 * 60 * 60 * 1000) + (2 * 60 * 1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (21 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (21 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (35 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (35 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (49 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (49 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (90 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (90 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+						
+						</select>
+					</div>
+
+					<div class="field">
+						<label>End Date</label>
+						<select class="ui search dropdown" name="endate">
+							<option value="">Date</option>
+							<option value="">Date</option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + ( 1.5 * 60 * 60 * 1000) + (5 * 60 * 1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (15 * 60 * 60 * 1000) + (5 * 60 *1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (42 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (42 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (70 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (70 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (98 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (98 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+							<option value="<%= new Date(new Date(vacc.info.DOB).getTime() + (180 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %>"><%= new Date(new Date(vacc.info.DOB).getTime() + (180 * 24 * 60 * 60 * 1000) +(15*60*60*1000) + (22*60*1000)); %></option>
+						
+						</select>
+					</div>
+				
+				</div>
+			</div>
+			<div class="ui segments">
+				<div class="ui segment">
+						<label>District</label>
+						<input type="text" name="vacc[info.district]" value="<%= vacc.info.district %>">
+					
+				</div>
+				
+			</div>
+			
+			<div class="ui segments">
+				<div class="ui segment">
+				  <p class="header">24 hours
+				  </p>
+				  
+				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.hour.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[hour.check]" value="True"  />	
+					</div>
+  				</div>
+			</div>
+			
+			<div class="ui segments">
+				<div class="ui segment">
+				  <p class="header">6 weeks</p>
+				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week6.v1.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week6.v1.check]" value="True"/>	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week6.v2.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox"  name="vacc[week6.v2.check]" value="True"  />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week6.v3.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week6.v3.check]" value="True" />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week6.v4.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week6.v4.check]" value="True"  />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week6.v5.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week6.v5.check]" value="True" />	
+					</div>
+  				</div>
+			</div>
+
+			<div class="ui segments">
+				<div class="ui segment">
+				  <p class="header">10 weeks</p>
+				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week10.v6.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week10.v6.check]" value="True"  />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week10.v7.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox"  name="vacc[week10.v7.check]" value="True" />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week10.v8.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week10.v8.check]" value="True" />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week10.v9.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week10.v9.check]" value="True"  />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week10.v10.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week10.v10.check]" value="True"  />	
+					</div>
+  				</div>
+			</div>
+
+			<div class="ui segments">
+				<div class="ui segment">
+				  <p class="header">14 weeks</p>
+				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week14.v11.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week14.v11.check]" value="True" />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week14.v12.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox"  name="vacc[week14.v12.check]" value="True" />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week14.v13.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week14.v13.check]" value="True" />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week14.v14.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week14.v14.check]" value="True" />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.week14.v15.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[week14.v15.check]" value="True" />	
+					</div>
+  				</div>
+			</div>
+
+			<div class="ui segments">
+				<div class="ui segment">
+				  <p class="header">6 months</p>
+				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.month6.v16.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="vacc[month6.v16.check]" value="True"   />	
+					</div>
+  				</div>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+					  <p class="header"><%= vacc.month6.v17.name %></p>
+					</div>
+					<div class="field">
+						<input type="checkbox"  name="vacc[month6.v17.check]" value="True"  />	
+					</div>
+  				</div>
+			</div>
+
+			<input class="ui violet basic button big" type="submit">
+		</form>
+	</div>
+	
+	</body>
+</html>

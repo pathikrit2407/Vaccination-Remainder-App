@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Vacination App</title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	
+	</head>
+	<body>
+		<a href="/"><i class="home icon"></i></a> 
+	<div class="ui main text container">
+	<div class="ui top attached segment" style="margin-top:50px;">
+		<div class="ui divided items">
+			
+		  <form class="ui form" action="/login/admin" method="POST">
+			<h2 class="ui dividing header">Sign In As Admin </h2>
+			<div class="field">
+			  <label>UserName:</label>
+			  <input type="text" name="user" required>
+			</div>
+			<div class="field">
+			  <label>Password :</label>
+			  <input type="password" name="password" required>
+			</div>
+			<div>
+                <label>District :</label>
+                <select name="vacc[info.district]">
+                  <option selected>Select District</option>
+                  <option>Cachar </option>
+                  <option>Kamrup</option>
+                  <option>Hailakandi</option>
+                  <option>Karimganj</option>
+                </select>
+             </div>
+			<button style="margin-top:20px;" class="ui button" type="submit">Submit</button>
+		  </form>
+<!-- 
+		  <form action="/page/login %>" method="POST">
+			<div>
+				<label>UserId:</label><br>
+				<input type="text" name="id" required><br>
+				<label>Phone-Number:</label><br>
+				<input type="string" name="phone" required>
+				<br>
+				<input type="submit">
+			</div>
+		</form> -->
+		</div>
+	</div>
+</div>
+	</body>
+</html>
